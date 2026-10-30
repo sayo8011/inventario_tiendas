@@ -1,16 +1,30 @@
-# inventario_tiendas
+# Inventario Tiendas
 
-A new Flutter project.
+Aplicación de escritorio para Windows, hecha con Flutter y SQLite, para llevar el inventario de un negocio. Cada instalación corresponde a una sede y guarda sus datos en ese equipo.
 
-## Getting Started
+## Estado
 
-This project is a starting point for a Flutter application.
+| Módulo | Estado |
+| --- | --- |
+| Categorías | Listo |
+| Productos | Listo |
+| Inventario (entradas, salidas, ajustes e historial) | Listo |
+| Proveedores | Listo |
+| Login, Dashboard, Ventas, Reportes | Pendiente |
 
-A few resources to get you started if this is your first Flutter project:
+## Comandos
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+flutter pub get
+flutter run -d windows
+flutter test
+flutter analyze
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Datos
+
+- La base de datos está en `%APPDATA%\InventarioTiendas\inventario_tiendas\inventario.db`.
+- El dinero se guarda en centavos y las cantidades en milésimas, siempre como enteros.
+- Los productos no se borran, se desactivan, para conservar su historial.
+- El stock solo cambia mediante movimientos registrados en `stock_movements`.
+- Los cambios al esquema se hacen con una migración nueva en `lib/core/database/app_database.dart`.

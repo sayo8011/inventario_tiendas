@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
@@ -20,6 +21,9 @@ class InventarioApp extends StatelessWidget {
       title: 'Inventario Tiendas',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
+      locale: const Locale('es', 'CO'),
+      supportedLocales: const [Locale('es', 'CO')],
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
       routerConfig: appRouter,
     );
   }

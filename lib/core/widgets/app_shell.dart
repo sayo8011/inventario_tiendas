@@ -62,19 +62,6 @@ class AppShell extends StatelessWidget {
                   label: Text(item.label),
                 ),
             ],
-            trailing: Expanded(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: TextButton.icon(
-                    onPressed: () => context.go('/login'),
-                    icon: const Icon(Icons.logout),
-                    label: const Text('Cerrar sesión'),
-                  ),
-                ),
-              ),
-            ),
           ),
           const VerticalDivider(width: 1),
           Expanded(child: child),

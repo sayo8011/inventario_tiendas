@@ -62,8 +62,15 @@ class CategoriesPage extends ConsumerWidget {
         ],
       ),
     );
-    if (ok == true) {
+    if (ok != true) return;
+
+    try {
       await ref.read(categoriesProvider.notifier).remove(category.id!);
+    } on DatabaseException catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error al eliminar: $e')),
+      );
     }
   }
 
@@ -106,7 +113,7 @@ class CategoriesPage extends ConsumerWidget {
                   clipBehavior: Clip.antiAlias,
                   child: ListView.separated(
                     itemCount: list.length,
-                    separatorBuilder: (_, __) => const Divider(height: 1),
+                    separatorBuilder: (_, _) => const Divider(height: 1),
                     itemBuilder: (context, i) {
                       final c = list[i];
                       return ListTile(
